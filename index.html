@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <h1>Input Player Stats</h1>
+        <form onsubmit="return false;">
+            Player: <input name="playerName" id="playerName" type="text"/> <br />
+            <br> 
+
+            <div><b>Passing Stats</b></div>
+            Passing Touchdowns: <input name="passingTd" id="passingTd" type="number"/> <br />
+            Interceptions <input name="interceptions" id="interceptions" type="number"/> <br />
+            Completions <input name="completions" id="completions" type="number"/> <br />
+            Incompletions <input name="incompletions" id="incompletions" type="number"/> <br />
+            Sacks <input name="sacks" id="sacks" type="number"/> <br />
+            Passing Yards <input name="passingYds" id="passingYds" type="number"/> <br />
+            Pick 6s <input name="pickSixes" id="pickSixes" type="number"/> <br />
+            40+ Yard Completions <input name="fortyYdComps" id="fortyYdComps" type="number"/> <br />
+            40+ Yard Passing Touchdowns <input name="fortyYdPTds" id="fortyYdPTds" type="number"/> <br />
+            <br />
+
+            <div><b>Rushing Stats</b></div>
+            Rushing Touchdowns <input name="rushingTds" id="rushingTds" type="number"/> <br />
+            Rushing Attempts <input name="rushingAttempts" id="rushingAttempts" type="number"/> <br />
+            Rushing Yards <input name="rushingYds" id="rushingYds" type="number"/> <br />
+            40+ Yard Rushing Touchdowns <input name="fortyYdRushTds" id="fortyYdRushTds" type="number"/> <br />
+            Rushing 1st Down <input name="rushingFirstDowns" id="rushingFirstDowns" type="number"/> <br />
+            <br>
+
+            <div><b>Receiving Stats</b></div>
+            Receiving Touchdowns <input name="receivingTds" id="receivingTds" type="number"/> <br />
+            Receptions <input name="recs" id="recs" type="number"/> <br />
+            Receiving Yards <input name="recYds" id="recYds" type="number"/> <br />
+            40+ Yard Receptions <input name="fortyYdsRecs" id="fortyYdsRecs" type="number"/> <br />
+            40+ Yard Touchdown Receptions <input name="fortyYdTdRec" id="fortyYdTdRec" type="number"/> <br />
+            Receiving 1st Down <input name="receivingFirstDowns" id="receivingFirstDowns" type="number"/> <br />
+            <br>
+
+            <div><b>Return Stats</b></div>
+            Return Touchdowns <input name="retTds" id="retTds" type="number"/> <br />
+            Return Yards <input name="retYds" id="retYds" type="number"/> <br />
+            <br>
+
+            <div><b>Miscellaneous</b></div>
+            2pt Conversions <input name="twoPtConv" id="twoPtConv" type="number"/> <br />
+            Fumbles <input name="fum" id="fum" type="number"/> <br />
+            Fumbles Lost <input name="fumLost" id="fumLost" type="number"/> <br />
+            Offensive Fumble Return TDs <input name="offFumRetTds" id="offFumRetTds" type="number"/> <br />
+            <br>
+
+            <div><b>Kickers</b></div>
+            FG Made 0-19 Yards <input name="kickMade0to19" id="kickMade0to19" type="number"/> <br />
+            FG Missed 0-19 Yards <input name="kickMissed0to19" id="kickMissed0to19" type="number"/> <br />
+            FG Made 20-29 Yards <input name="kickMade20to29" id="kickMade20to29" type="number"/> <br />
+            FG Missed 20-29 Yards <input name="kickMissed20to29" id="kickMissed20to29" type="number"/> <br />
+            FG Made 30-39 Yards <input name="kickMade30to39" id="kickMade30to39" type="number"/> <br />
+            FG Missed 30-39 Yards <input name="kickMissed30to39" id="kickMissed30to39" type="number"/> <br />
+            FG Made 40-49 Yards <input name="kickMade40to49" id="kickMade40to49" type="number"/> <br />
+            FG Missed 40-49 Yards <input name="kickMissed40to49" id="kickMissed40to49" type="number"/> <br />
+            FG Made 50+ Yards <input name="kickMade50AndUp" id="kickMade50AndUp" type="number"/> <br />
+            PATs Made <input name="xpMade" id="xpMade" type="number"> <br />
+            PATs Missed <input name="xpMade" id="xpMissed" type="number"> <br />
+            <br>
+
+            <button type="sumbit" onclick="scoreTotal()">Calculate Score</button>
+        </form>
+        <div></div>
+
+        <h1>Total Score</h1>
+        <p>Player: <span id="player"></span></p>
+        <p>Points for Passing Touchdowns: <span id="pTds"></span></p>
+        <p>Points for Interceptions Thrown: <span id="ints"></span></p>
+        <p>Points for Completions <span id="comp"></span></p>
+        <p>Points for Incompletions <span id="incomp"></span></p>
+        <p>Points for Times Sacked: <span id="timesSacked"></span></p>
+        <p>Points for Passing Yards: <span id="pYds"></span></p>
+        <p>Points for Pick 6s: <span id="6s"></span></p>
+        <p>Points for 40+ Yard Completions: <span id="40ydComp"></span></p>
+        <p>Points for 40+ Yard Touchdown: <span id="40ydTd"></span></p>
+        <p>Points for Rushing Touchdowns: <span id="rTds"></span></p>
+        <p>Points for Rushing Attempts: <span id="rAtt"></span></p>
+        <p>Points for Rushing Yards: <span id="rYds"></span></p>
+        <p>Points for 40+ Yard Rushing Touchdowns: <span id="40ydRun"></span></p>
+        <p>Points for First Down Rushes: <span id="1stDownRun"</p>
+
+        <p>Score: <span id="totalScore"></span></p>
+        <script>
+            function scoreTotal() {
+
+                //Player Info
+                let playerName = document.getElementById("playerName").value;
+                
+                //Passing Stats
+                let passingTd = document.getElementById("passingTd").value * 4;
+                let interceptions = document.getElementById("interceptions").value * -2;
+                let completions = document.getElementById("completions").value * .25;
+                let incompletions = document.getElementById("incompletions").value * -.25;
+                let sacks = document.getElementById("sacks").value * -1;
+                let passingYds = document.getElementById("passingYds").value / 30;
+                let pickSixes = document.getElementById("pickSixes").value * -1;
+                let fortyYdComps = document.getElementById("fortyYdComps").value * 1;
+                let fortyYdPTds = document.getElementById("fortyYdPTds").value * 1;
+
+                //Rushing stats
+                let rushingTds = document.getElementById("rushingTds").value * 6;
+                let rushingAttempts = document.getElementById("rushingAttempts").value * .20;
+                let rushingYds = document.getElementById("rushingYds").value / 15;
+                let fortyYdRushTds = document.getElementById("fortyYdRushTds").value * 1;
+                let rushingFirstDowns = document.getElementById("rushingFirstDowns").value * .25;
+
+                //Receiving Stats
+                let receivingTds = document.getElementById("receivingTds").value * 6;
+                let recs = document.getElementById("recs").value * 1;
+                let recYds = document.getElementById("recYds").value * 10;
+                let fortyYdsRecs = document.getElementById("fortyYdsRecs").value * .5;
+                let fortyYdTdRec = document.getElementById("fortyYdTdRec").value * 2;
+                let receivingFirstDowns = document.getElementById("receivingFirstDowns").value * .25;
+
+                //Return Stats
+                let retTds = document.getElementById("retTds").value * 6;
+                let retYds = document.getElementById("retYds").value /50;
+
+                //Miscellaneous
+                let twoPtConv = document.getElementById("twoPtConv").value * 2;
+                let fum = document.getElementById("fum").value * -1;
+                let fumLost = document.getElementById("fumLost").value * -1;
+                let offFumRetTds = document.getElementById("offFumRetTds").value * 6;
+
+                //Kickers
+                let kickMade0to19 = document.getElementById("kickMade0to19").value * 3;
+                let kickMissed0to19 = document.getElementById("kickMissed0to19").value * -2;
+                let kickMade20to29 = document.getElementById("kickMade20to29").value * 3;
+                let kickMissed20to29 = document.getElementById("kickMissed20to29").value * -1;
+                let kickMade30to39 = document.getElementById("kickMade30to39").value * 3;
+                let kickMissed30to39 = document.getElementById("kickMissed30to39").value * -1;
+                let kickMade40to49 = document.getElementById("kickMade40to49").value * 4;
+                let kickMissed40to49 = document.getElementById("kickMissed40to49").value * -1;
+                let kickMade50AndUp = document.getElementById("kickMade50AndUp").value * 5;
+                let xpMade = document.getElementById("xpMade").value * 1;
+                let xpMissed = document.getElementById("xpMissed").value * -1;
+
+                let total = passingTd + interceptions + completions + incompletions + sacks + passingYds + pickSixes + fortyYdComps + fortyYdPTds + rushingTds + rushingAttempts + rushingYds + fortyYdRushTds + rushingFirstDowns + rushingFirstDowns + receivingTds + recs + recYds + fortyYdsRecs + fortyYdTdRec + receivingFirstDowns + retTds + retYds + twoPtConv + fum + fumLost + offFumRetTds + kickMade0to19 + kickMissed0to19 + kickMade20to29 + kickMissed20to29 + kickMade30to39 + kickMissed30to39 + kickMade40to49 + kickMissed40to49 + kickMade50AndUp + xpMade + xpMissed;
+
+                //Display Player Name
+                document.getElementById("player").innerHTML = playerName
+
+                //Display Player's Individual Points
+                document.getElementById("pTds").innerHTML = passingTd
+                document.getElementById("ints").innerHTML = interceptions
+                document.getElementById("comp").innerHTML = completions
+                document.getElementById("incomp").innerHTML = incompletions
+                document.getElementById("timesSacked").innerHTML = sacks
+                document.getElementById("pYds").innerHTML = passingYds
+                document.getElementById("6s").innerHTML = pickSixes
+                document.getElementById("40ydComp").innerHTML = fortyYdComps
+                document.getElementById("40ydTd").innerHTML = fortyYdPTds
+                document.getElementById("rTds").innerHTML = rushingTds
+                document.getElementById("rAtt").innerHTML = rushingAttempts
+                document.getElementById("rYds").innerHTML = rushingYds
+                document.getElementById("40ydRun").innerHTML = fortyYdRushTds
+                document.getElementById("1stDownRun").innerHTML = rushingFirstDowns
+
+
+                //Display Total Score
+                document.getElementById("totalScore").innerHTML = total;
+            };
+
+        </script>
+    </body>
+</html>
