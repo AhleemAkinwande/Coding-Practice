@@ -28,6 +28,8 @@ h1 {
     color: rgba(158, 115, 7, 0.866);
     margin-left: -1rem;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 
